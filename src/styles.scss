@@ -1,1 +1,213 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+}
+
+
+.loto {
+  max-width: 350px;
+  min-height: 150mm;
+  &--main {
+    background: orange url(./assets/img/header.png) no-repeat top center;
+    background-size: contain;
+  }
+  &--out {
+    background: orange url(./assets/img/header1.png) no-repeat top center;
+    background-size: contain;
+  }
+  &__enter {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__main {
+    padding: 10px 0 20px;
+  }
+
+  &__container {
+    padding: 10px;
+    &.jcc {
+      justify-content: center;
+    }
+  }
+}
+
+.showtime-btn {
+  min-height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 250px;
+  border-radius: 15px;
+  background: #b3b8ff;
+  color: #ffffff;
+  border: 1px solid #feff2e;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.panel {
+  padding: 100px 0 10px 0;
+
+  &__main {
+    margin-bottom: 20px;
+  }
+
+  &__title {
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  &__content-box {
+    border: 1px solid silver;
+    border-radius: 15px;
+    padding: 10px;
+    background: #ffffff;
+    &--no-bg {
+      background: transparent;
+      border: none;
+    }
+  }
+
+  &__tabs {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  &__field {
+    max-width: 40%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__item {
+    input[type = checkbox] {
+      display: none;
+    }
+    width: calc(33% - 2px);
+    margin: 0 1px 1px 1px;
+  }
+  &__item-label {
+    padding: 10px;
+    background: #ddd;
+    border-radius: 5px;
+    border: 2px solid transparent;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    &.active {
+      animation: setBorder ease-in-out .5s;
+      background: gold;
+      border-color: transparent;
+    }
+  }
+
+  &__submit-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 50px;
+    border-radius: 50px;
+    border: 1px solid #ddd;
+    box-shadow: none;
+    background: #f065ff;
+    color: #fff;
+    cursor: pointer;
+    padding: 5px;
+    &:disabled {
+      background: #ff8dfe;
+      opacity: .5;
+      cursor: not-allowed;
+    }
+  }
+}
+
+.flex-grow {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.jcfe {
+  justify-content: flex-end;
+}
+
+@keyframes setBorder {
+  from {
+    border-top-color: silver;
+    border-right-color: silver;
+    border-bottom-color: silver;
+    border-left-color: silver;
+    box-shadow: inset 0px 0px 1px 5px white;
+  }
+
+  25% {
+    border-top-color: gold;
+    border-right-color: silver;
+    border-bottom-color: silver;
+    border-left-color: silver;
+  }
+
+  50% {
+    border-top-color: gold;
+    border-right-color: gold;
+    border-bottom-color: silver;
+    border-left-color: silver;
+  }
+
+  75% {
+    border-top-color: gold;
+    border-right-color: gold;
+    border-bottom-color: gold;
+    border-left-color: silver;
+  }
+
+  to {
+    border-top-color: gold;
+    border-right-color: gold;
+    border-bottom-color: gold;
+    border-left-color: gold;
+    box-shadow: inset 0px 0px 10px white;
+    background: gold;
+  }
+}
+
+@media all and (max-width: 500px) {
+  .layout {
+    height: 100%;
+    &__body {
+      display: flex;
+      flex-direction: column;
+      flex: 1 1 auto;
+      height: 100%;
+    }
+
+    &__row {
+      backface-visibility: hidden;
+      flex: 1 1 auto;
+      display: flex;
+      overflow: hidden;
+      overflow-y: auto;
+      flex-wrap: wrap;
+
+    }
+  }
+
+  .loto {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 100%;
+  }
+
+}

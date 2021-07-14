@@ -1,0 +1,38 @@
+<div class="panel flex-grow">
+  <div class="panel__main flex-grow">
+    <div class="panel__content-box">
+      <h2 class="panel__title">
+        {{ title }}
+      </h2>
+      <div class="panel__tabs">
+        <div class="panel__field">
+          <div class="panel__item"
+               *ngFor="let data of data; let i = index">
+            <label class="panel__item-label" [class.active]="leftCheckedElements[i]">
+              <input type="checkbox" [(ngModel)]="leftCheckedElements[i]" [value]="data" (change)="onLeftListChange($event)"/>
+              <span class="panel__item-text">
+              {{data}}
+            </span>
+            </label>
+          </div>
+        </div>
+        <div class="panel__field">
+          <div class="panel__item"
+               [class.active]="rightCheckedElements[j]"
+               *ngFor="let data of data; let j = index">
+            <label class="panel__item-label" [class.active]="rightCheckedElements[j]">
+              <input type="checkbox" [(ngModel)]="rightCheckedElements[j]" [value]="data" (change)="onRightListChange($event)"/>
+              <span class="panel__item-text">
+              {{data}}
+            </span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="panel__footer">
+    <button class="panel__submit-btn" (click)="submit()" [disabled]="!isSubmittedEnabled"> Играть </button>
+  </div>
+</div>
+
